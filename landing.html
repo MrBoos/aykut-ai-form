@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aykut.ai - İşletmenizi Yapay Zeka İle Büyütün</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#a66bff",
+              "background-light": "#f5f5f7",
+              "background-white": "#ffffff",
+              "text-dark": "#1d1d1f",
+              "text-subtle": "#86868b",
+            },
+            fontFamily: {
+              display: ["Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
+              sans: ["Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
+            },
+            boxShadow: {
+                'soft': '0 4px 24px rgba(0,0,0,0.04)',
+                'glow': '0 0 20px rgba(166, 107, 255, 0.4)',
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-background-white text-text-dark w-full overflow-x-hidden">
+<header class="fixed top-0 z-50 w-full border-b border-[#e5e5e5] bg-white/80 backdrop-blur-md transition-all">
+<div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
+<div class="flex items-center gap-2">
+<div class="flex size-8 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined" style="font-size: 20px;">smart_toy</span>
+</div>
+<span class="text-lg font-semibold tracking-tight text-text-dark">Aykut.ai</span>
+</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-sm font-medium text-text-dark hover:text-primary transition-colors" href="#hizmetler">Hizmetler</a>
+<a class="text-sm font-medium text-text-dark hover:text-primary transition-colors" href="#faydalar">Faydalar</a>
+<a class="text-sm font-medium text-text-dark hover:text-primary transition-colors" href="#nasil-calisir">Nasıl Çalışır?</a>
+<a class="text-sm font-medium text-text-dark hover:text-primary transition-colors" href="#iletisim">İletişim</a>
+</nav>
+<button class="hidden sm:flex h-9 items-center justify-center rounded-full bg-text-dark px-4 text-sm font-medium text-white transition hover:bg-black/80" onclick="document.getElementById('iletisim').scrollIntoView({behavior: 'smooth'})">
+            Danışmanlık Alın
+        </button>
+</div>
+</header>
+<main class="pt-16">
+<section class="relative flex flex-col items-center justify-center px-6 py-24 text-center lg:py-32 bg-background-white overflow-hidden">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative z-10 max-w-4xl mx-auto flex flex-col items-center gap-8">
+<h1 class="text-5xl font-bold tracking-tight text-text-dark sm:text-6xl lg:text-7xl leading-[1.1]">
+                İşletmenizi Yapay Zeka İle <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-800">Büyütün</span>
+</h1>
+<p class="max-w-2xl text-lg text-text-subtle sm:text-xl leading-relaxed">
+                Mesajlarınıza cevap veren, telefonları açan ve 7/24 satış yapan sistemler kuruyoruz. Siz işinize odaklanın, gerisini yapay zekaya bırakın.
+            </p>
+<div class="flex flex-col sm:flex-row gap-4 w-full justify-center pt-4">
+<button class="group relative flex h-12 min-w-[160px] items-center justify-center rounded-full bg-primary px-8 text-base font-medium text-white shadow-glow transition-all hover:scale-105 hover:bg-primary/90" onclick="document.getElementById('iletisim').scrollIntoView({behavior: 'smooth'})">
+                    Hadi Konuşalım
+                    <span class="material-symbols-outlined ml-2 transition-transform group-hover:translate-x-1" style="font-size: 18px;">arrow_forward</span>
+</button>
+<a class="flex h-12 min-w-[160px] items-center justify-center rounded-full border border-[#d2d2d7] bg-white px-8 text-base font-medium text-text-dark transition-all hover:bg-[#f5f5f7] hover:border-[#86868b]" href="#nasil-calisir">
+                    Nasıl Çalışır?
+                </a>
+</div>
+<div class="mt-8 flex flex-col items-center gap-3 animate-fade-in-up">
+<div class="flex gap-1 text-[#f5a623]">
+<span class="material-symbols-outlined fill-current" style="font-variation-settings: 'FILL' 1; font-size: 20px;">star</span>
+<span class="material-symbols-outlined fill-current" style="font-variation-settings: 'FILL' 1; font-size: 20px;">star</span>
+<span class="material-symbols-outlined fill-current" style="font-variation-settings: 'FILL' 1; font-size: 20px;">star</span>
+<span class="material-symbols-outlined fill-current" style="font-variation-settings: 'FILL' 1; font-size: 20px;">star</span>
+<span class="material-symbols-outlined fill-current" style="font-variation-settings: 'FILL' 1; font-size: 20px;">star</span>
+</div>
+<p class="text-sm font-medium text-text-subtle">
+<span class="text-text-dark font-bold">290+ İşletme</span> Tarafından Tercih Edildi
+                </p>
+</div>
+</div>
+</section>
+<section class="bg-background-white pb-24 pt-4 sm:pb-32">
+<div class="mx-auto max-w-7xl px-6 lg:px-8">
+<h2 class="text-center text-sm font-semibold leading-8 text-text-subtle/80 uppercase tracking-widest mb-10">
+            Sektör Liderleri Bize Güveniyor
+        </h2>
+<div class="mx-auto grid max-w-lg grid-cols-2 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-3 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+<div class="flex justify-center group col-span-1">
+<div class="flex items-center gap-2.5 text-[#a1a1aa] group-hover:text-primary transition-colors duration-300 cursor-default">
+<span class="material-symbols-outlined text-4xl">change_history</span>
+<span class="font-bold text-xl font-display tracking-tight text-inherit">VERTEX</span>
+</div>
+</div>
+<div class="flex justify-center group col-span-1">
+<div class="flex items-center gap-2.5 text-[#a1a1aa] group-hover:text-primary transition-colors duration-300 cursor-default">
+<span class="material-symbols-outlined text-4xl">layers</span>
+<span class="font-bold text-xl font-display tracking-tight text-inherit">STRATA</span>
+</div>
+</div>
+<div class="flex justify-center group col-span-1">
+<div class="flex items-center gap-2.5 text-[#a1a1aa] group-hover:text-primary transition-colors duration-300 cursor-default">
+<span class="material-symbols-outlined text-4xl">eco</span>
+<span class="font-bold text-xl font-display tracking-tight text-inherit">NATURA</span>
+</div>
+</div>
+<div class="flex justify-center group col-span-1 sm:col-start-auto">
+<div class="flex items-center gap-2.5 text-[#a1a1aa] group-hover:text-primary transition-colors duration-300 cursor-default">
+<span class="material-symbols-outlined text-4xl">bolt</span>
+<span class="font-bold text-xl font-display tracking-tight text-inherit">ENERGYA</span>
+</div>
+</div>
+<div class="flex justify-center group col-span-2 col-start-1 sm:col-span-1 sm:col-start-auto">
+<div class="flex items-center gap-2.5 text-[#a1a1aa] group-hover:text-primary transition-colors duration-300 cursor-default">
+<span class="material-symbols-outlined text-4xl">view_in_ar</span>
+<span class="font-bold text-xl font-display tracking-tight text-inherit">CUBIC</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-background-light py-24 sm:py-32" id="hizmetler">
+<div class="mx-auto max-w-7xl px-6 lg:px-8">
+<div class="mx-auto max-w-2xl text-center mb-16">
+<h2 class="text-3xl font-bold tracking-tight text-text-dark sm:text-4xl">Hizmetlerimiz</h2>
+<p class="mt-4 text-lg text-text-subtle">İşletmenizin ihtiyaçlarına özel tasarlanmış, sonuç odaklı otomasyon çözümleri.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="group relative flex flex-col gap-6 rounded-2xl bg-white p-8 shadow-soft transition-all hover:-translate-y-1 hover:shadow-xl">
+<div class="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+<span class="material-symbols-outlined" style="font-size: 32px;">chat_bubble</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-xl font-bold text-text-dark">AI Chatbot</h3>
+<p class="text-text-subtle leading-relaxed">Web sitenizde ve sosyal medyada müşteri sorularını anında yanıtlayan, öğrenen akıllı sohbet botları.</p>
+</div>
+</div>
+<div class="group relative flex flex-col gap-6 rounded-2xl bg-white p-8 shadow-soft ring-2 ring-primary/20 transition-all hover:-translate-y-1 hover:shadow-xl">
+<div class="absolute top-0 right-0 -mt-3 mr-4 rounded-full bg-primary px-3 py-1 text-xs font-bold text-white uppercase tracking-wider shadow-sm">Popüler</div>
+<div class="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+<span class="material-symbols-outlined" style="font-size: 32px;">mic</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-xl font-bold text-text-dark">Sesli Asistan</h3>
+<p class="text-text-subtle leading-relaxed">Telefon görüşmelerini yöneten, randevu alan ve müşterileri karşılayan doğal sesli asistanlar.</p>
+</div>
+</div>
+<div class="group relative flex flex-col gap-6 rounded-2xl bg-white p-8 shadow-soft transition-all hover:-translate-y-1 hover:shadow-xl">
+<div class="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+<span class="material-symbols-outlined" style="font-size: 32px;">settings_suggest</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-xl font-bold text-text-dark">Tam Otomasyon</h3>
+<p class="text-text-subtle leading-relaxed">CRM, e-posta ve takvim entegrasyonlarıyla iş süreçlerinizi baştan sona otomatize eden sistemler.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-white py-24 sm:py-32 border-y border-[#e5e5e5]/40">
+<div class="mx-auto max-w-7xl px-6 lg:px-8">
+<div class="mx-auto max-w-2xl text-center mb-16">
+<h2 class="text-3xl font-bold tracking-tight text-text-dark sm:text-4xl">Müşteri Yorumları</h2>
+<p class="mt-4 text-lg text-text-subtle">Bizimle çalışan işletme sahipleri neler söylüyor?</p>
+</div>
+<div class="mx-auto grid max-w-2xl grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+<div class="flex flex-col justify-between rounded-2xl bg-background-light p-8 shadow-sm ring-1 ring-gray-200">
+<div class="flex gap-x-4 mb-6">
+<div class="h-10 w-10 rounded-full bg-[#e5e5e5] flex items-center justify-center text-text-subtle font-bold text-lg">E</div>
+<div>
+<h3 class="font-semibold text-text-dark">Emre Yılmaz</h3>
+<p class="text-sm leading-6 text-text-subtle">Diş Hekimi</p>
+</div>
+</div>
+<blockquote class="text-text-dark leading-7">
+<p>“Randevu trafiğini yönetmek artık çok kolay. Asistanım gibi çalışan bir sistem kurdular, hastalarım da çok memnun.”</p>
+</blockquote>
+</div>
+<div class="flex flex-col justify-between rounded-2xl bg-background-light p-8 shadow-sm ring-1 ring-gray-200">
+<div class="flex gap-x-4 mb-6">
+<div class="h-10 w-10 rounded-full bg-[#e5e5e5] flex items-center justify-center text-text-subtle font-bold text-lg">Z</div>
+<div>
+<h3 class="font-semibold text-text-dark">Zeynep Kaya</h3>
+<p class="text-sm leading-6 text-text-subtle">Emlak Danışmanı</p>
+</div>
+</div>
+<blockquote class="text-text-dark leading-7">
+<p>“Gece gelen müşteri sorularını bile kaçırmıyorum artık. Aykut.ai sayesinde satışlarım %30 arttı, harika bir ekip!”</p>
+</blockquote>
+</div>
+<div class="flex flex-col justify-between rounded-2xl bg-background-light p-8 shadow-sm ring-1 ring-gray-200">
+<div class="flex gap-x-4 mb-6">
+<div class="h-10 w-10 rounded-full bg-[#e5e5e5] flex items-center justify-center text-text-subtle font-bold text-lg">M</div>
+<div>
+<h3 class="font-semibold text-text-dark">Murat Demir</h3>
+<p class="text-sm leading-6 text-text-subtle">Avukat</p>
+</div>
+</div>
+<blockquote class="text-text-dark leading-7">
+<p>“Müvekkil görüşmelerini organize etmekte çok zorlanıyordum. Kurdukları sistem tam bir cankurtaran oldu.”</p>
+</blockquote>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-white py-24 sm:py-32" id="faydalar">
+<div class="mx-auto max-w-7xl px-6 lg:px-8">
+<div class="mx-auto max-w-2xl text-center mb-16">
+<h2 class="text-3xl font-bold tracking-tight text-text-dark sm:text-4xl">Personel Maliyetlerini Unutun</h2>
+<p class="mt-4 text-lg text-text-subtle">Geleneksel yöntemler ile modern yapay zeka çözümleri arasındaki farkı keşfedin.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 max-w-5xl mx-auto">
+<div class="flex flex-col rounded-3xl border border-gray-100 bg-[#f9f9fb] p-8 lg:p-10 opacity-80 hover:opacity-100 transition-opacity">
+<div class="mb-6 flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-200 text-gray-500">
+<span class="material-symbols-outlined">history</span>
+</div>
+<h3 class="text-xl font-bold text-gray-500">Eski Yöntem</h3>
+</div>
+<ul class="flex flex-col gap-4">
+<li class="flex items-start gap-3 text-gray-500">
+<span class="material-symbols-outlined shrink-0 text-red-400">close</span>
+<span>Yüksek maaş, SGK, yemek ve yol gibi artan personel giderleri</span>
+</li>
+<li class="flex items-start gap-3 text-gray-500">
+<span class="material-symbols-outlined shrink-0 text-red-400">close</span>
+<span>Mesai saatleri dışında ve hafta sonlarında gelen potansiyel müşterilerin kaybedilmesi</span>
+</li>
+<li class="flex items-start gap-3 text-gray-500">
+<span class="material-symbols-outlined shrink-0 text-red-400">close</span>
+<span>İnsan hatasına bağlı unutulan geri dönüşler ve yanlış randevu kayıtları</span>
+</li>
+<li class="flex items-start gap-3 text-gray-500">
+<span class="material-symbols-outlined shrink-0 text-red-400">close</span>
+<span>Sürekli personel eğitimi, izin yönetimi ve performans takibi zorunluluğu</span>
+</li>
+</ul>
+</div>
+<div class="relative flex flex-col rounded-3xl border border-primary/20 bg-white p-8 lg:p-10 shadow-2xl shadow-primary/10">
+<div class="absolute -top-4 right-8 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Önerilen</div>
+<div class="mb-6 flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
+<span class="material-symbols-outlined">auto_awesome</span>
+</div>
+<h3 class="text-xl font-bold text-text-dark">Aykut.ai Yöntemi</h3>
+</div>
+<ul class="flex flex-col gap-4">
+<li class="flex items-start gap-3 text-text-dark font-medium">
+<span class="material-symbols-outlined shrink-0 text-primary">check_circle</span>
+<span>Yılın 365 günü, 7/24 kesintisiz hizmet ve müşterilere anında yanıt</span>
+</li>
+<li class="flex items-start gap-3 text-text-dark font-medium">
+<span class="material-symbols-outlined shrink-0 text-primary">check_circle</span>
+<span>Maaş ve sigorta yükü olmadan %90'a varan operasyonel maliyet tasarrufu</span>
+</li>
+<li class="flex items-start gap-3 text-text-dark font-medium">
+<span class="material-symbols-outlined shrink-0 text-primary">check_circle</span>
+<span>CRM ve takvim ile %100 entegre, hatasız ve otomatik veri yönetimi</span>
+</li>
+<li class="flex items-start gap-3 text-text-dark font-medium">
+<span class="material-symbols-outlined shrink-0 text-primary">check_circle</span>
+<span>Siz uyurken bile soruları yanıtlayan ve satış yapan akıllı sistemler</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-background-light py-24 sm:py-32" id="nasil-calisir">
+<div class="mx-auto max-w-7xl px-6 lg:px-8">
+<div class="mx-auto max-w-2xl text-center mb-16">
+<h2 class="text-3xl font-bold tracking-tight text-text-dark sm:text-4xl">Nasıl Çalışır?</h2>
+<p class="mt-4 text-lg text-text-subtle">Karmaşık görünen süreçleri 3 basit adımda hayata geçiriyoruz.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24 relative">
+<div class="flex flex-col items-center text-center gap-4">
+<div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-primary shadow-sm ring-1 ring-gray-200">
+<span class="material-symbols-outlined text-3xl">analytics</span>
+</div>
+<h3 class="text-xl font-bold text-text-dark">1. Analiz ve Planlama</h3>
+<p class="text-text-subtle">İşletmenizin ihtiyaçlarını analiz ediyor ve size özel bir otomasyon stratejisi belirliyoruz.</p>
+</div>
+<div class="flex flex-col items-center text-center gap-4">
+<div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-primary shadow-sm ring-1 ring-gray-200">
+<span class="material-symbols-outlined text-3xl">account_tree</span>
+</div>
+<h3 class="text-xl font-bold text-text-dark">2. Entegrasyon</h3>
+<p class="text-text-subtle">Yapay zeka ajanlarını mevcut CRM, telefon ve web sitenize sorunsuz şekilde entegre ediyoruz.</p>
+</div>
+<div class="flex flex-col items-center text-center gap-4">
+<div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-primary shadow-sm ring-1 ring-gray-200">
+<span class="material-symbols-outlined text-3xl">rocket_launch</span>
+</div>
+<h3 class="text-xl font-bold text-text-dark">3. Canlıya Geçiş</h3>
+<p class="text-text-subtle">Sistemler test edildikten sonra aktifleşir ve 7/24 sizin adınıza çalışmaya başlar.</p>
+</div>
+</div>
+<div class="w-full h-px bg-[#d2d2d7]/50 mb-20"></div>
+<div class="mx-auto max-w-2xl text-center mb-12">
+<h3 class="text-2xl font-bold tracking-tight text-text-dark">Sıkça Sorulan Sorular</h3>
+<p class="mt-4 text-lg text-text-subtle">Aklınıza takılan soruların cevaplarını burada bulabilirsiniz.</p>
+</div>
+<div class="mx-auto max-w-3xl divide-y divide-[#e5e5e5] border-y border-[#e5e5e5]">
+<details class="group py-6">
+<summary class="flex w-full cursor-pointer items-center justify-between text-left text-lg font-medium text-text-dark hover:text-primary transition-colors">
+<span>Ücretsiz demo veriyor musunuz?</span>
+<span class="ml-6 flex h-7 w-7 flex-none items-center justify-center rounded-full border border-[#d2d2d7] transition-all [.group[open]_&amp;]:rotate-45 [.group[open]_&amp;]:border-primary [.group[open]_&amp;]:text-primary">
+<span class="material-symbols-outlined" style="font-size: 18px;">add</span>
+</span>
+</summary>
+<div class="mt-4 pr-12 animate-fade-in-down">
+<p class="text-base leading-7 text-text-subtle">Evet! Sistemlerimizin yeteneklerini görebilmeniz için ücretsiz bir demo sunumu yapıyoruz. İşletmenize özel neler yapabileceğimizi canlı olarak deneyimleyebilirsiniz.</p>
+</div>
+</details>
+<details class="group py-6">
+<summary class="flex w-full cursor-pointer items-center justify-between text-left text-lg font-medium text-text-dark hover:text-primary transition-colors">
+<span>Kurulum süreci ne kadar sürüyor?</span>
+<span class="ml-6 flex h-7 w-7 flex-none items-center justify-center rounded-full border border-[#d2d2d7] transition-all [.group[open]_&amp;]:rotate-45 [.group[open]_&amp;]:border-primary [.group[open]_&amp;]:text-primary">
+<span class="material-symbols-outlined" style="font-size: 18px;">add</span>
+</span>
+</summary>
+<div class="mt-4 pr-12 animate-fade-in-down">
+<p class="text-base leading-7 text-text-subtle">İşletmenizin ihtiyaçlarına göre değişmekle birlikte, standart bir AI Chatbot ve Sesli Asistan kurulumu genellikle 3-7 iş günü içerisinde tamamlanıp canlıya alınmaktadır. Özel entegrasyonlar için bu süre değişiklik gösterebilir.</p>
+</div>
+</details>
+<details class="group py-6">
+<summary class="flex w-full cursor-pointer items-center justify-between text-left text-lg font-medium text-text-dark hover:text-primary transition-colors">
+<span>Mevcut CRM sistemime entegre edebilir misiniz?</span>
+<span class="ml-6 flex h-7 w-7 flex-none items-center justify-center rounded-full border border-[#d2d2d7] transition-all [.group[open]_&amp;]:rotate-45 [.group[open]_&amp;]:border-primary [.group[open]_&amp;]:text-primary">
+<span class="material-symbols-outlined" style="font-size: 18px;">add</span>
+</span>
+</summary>
+<div class="mt-4 pr-12">
+<p class="text-base leading-7 text-text-subtle">Evet, sistemlerimiz HubSpot, Salesforce, Zoho, Pipedrive ve diğer popüler CRM altyapılarıyla tam uyumlu çalışır. Özel yazılımlarınız için API üzerinden güvenli entegrasyon da sağlıyoruz.</p>
+</div>
+</details>
+<details class="group py-6">
+<summary class="flex w-full cursor-pointer items-center justify-between text-left text-lg font-medium text-text-dark hover:text-primary transition-colors">
+<span>Yapay zeka müşterilerimi gerçekten anlayabilir mi?</span>
+<span class="ml-6 flex h-7 w-7 flex-none items-center justify-center rounded-full border border-[#d2d2d7] transition-all [.group[open]_&amp;]:rotate-45 [.group[open]_&amp;]:border-primary [.group[open]_&amp;]:text-primary">
+<span class="material-symbols-outlined" style="font-size: 18px;">add</span>
+</span>
+</summary>
+<div class="mt-4 pr-12">
+<p class="text-base leading-7 text-text-subtle">Kesinlikle. Kullandığımız gelişmiş LLM (Büyük Dil Modelleri) teknolojisi sayesinde botlarımız Türkçe dilbilgisine, deyimlere ve konuşma diline hakimdir. Robotik değil, doğal bir insan gibi iletişim kurarlar.</p>
+</div>
+</details>
+<details class="group py-6">
+<summary class="flex w-full cursor-pointer items-center justify-between text-left text-lg font-medium text-text-dark hover:text-primary transition-colors">
+<span>Herhangi bir taahhüt vermem gerekiyor mu?</span>
+<span class="ml-6 flex h-7 w-7 flex-none items-center justify-center rounded-full border border-[#d2d2d7] transition-all [.group[open]_&amp;]:rotate-45 [.group[open]_&amp;]:border-primary [.group[open]_&amp;]:text-primary">
+<span class="material-symbols-outlined" style="font-size: 18px;">add</span>
+</span>
+</summary>
+<div class="mt-4 pr-12">
+<p class="text-base leading-7 text-text-subtle">Hayır, hizmetlerimizden memnun kalmazsanız dilediğiniz zaman iptal edebilirsiniz. Müşteri memnuniyetine güvendiğimiz için uzun vadeli bağlayıcı sözleşmelerle çalışmıyoruz.</p>
+</div>
+</details>
+<details class="group py-6">
+<summary class="flex w-full cursor-pointer items-center justify-between text-left text-lg font-medium text-text-dark hover:text-primary transition-colors">
+<span>Benim sektörüm için uygun mu?</span>
+<span class="ml-6 flex h-7 w-7 flex-none items-center justify-center rounded-full border border-[#d2d2d7] transition-all [.group[open]_&amp;]:rotate-45 [.group[open]_&amp;]:border-primary [.group[open]_&amp;]:text-primary">
+<span class="material-symbols-outlined" style="font-size: 18px;">add</span>
+</span>
+</summary>
+<div class="mt-4 pr-12">
+<p class="text-base leading-7 text-text-subtle">Emlak, Sağlık (Diş/Estetik), Hukuk, E-ticaret ve Danışmanlık sektörleri başta olmak üzere, müşteri iletişimi ve randevu yönetimi gerektiren tüm sektörler için özelleştirilmiş çözümler sunuyoruz.</p>
+</div>
+</details>
+</div>
+</div>
+</section>
+<section class="bg-background-light py-24 sm:py-32 relative overflow-hidden" id="iletisim">
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]"></div>
+<div class="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+<div class="mx-auto max-w-3xl text-center mb-12">
+<h2 class="text-3xl font-bold tracking-tight text-text-dark sm:text-4xl">Hadi Konuşalım</h2>
+<p class="mt-4 text-lg text-text-subtle">İşletmenizi nasıl büyütebileceğimizi konuşmak için hemen formu doldurun.</p>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-white border-t border-[#e5e5e5]">
+<div class="mx-auto max-w-7xl px-6 py-12 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-text-dark" style="font-size: 24px;">smart_toy</span>
+<span class="text-lg font-bold text-text-dark tracking-tight">Aykut.ai</span>
+</div>
+<div class="flex gap-8">
+<a class="text-sm text-text-subtle hover:text-text-dark transition-colors" href="#">Gizlilik Politikası</a>
+<a class="text-sm text-text-subtle hover:text-text-dark transition-colors" href="#">Kullanım Koşulları</a>
+<a class="text-sm text-text-subtle hover:text-text-dark transition-colors" href="#">Twitter</a>
+<a class="text-sm text-text-subtle hover:text-text-dark transition-colors" href="#">LinkedIn</a>
+</div>
+<p class="text-xs text-text-subtle">
+                © 2023 Aykut.ai. Tüm hakları saklıdır.
+            </p>
+</div>
+</footer>
+</body></html>

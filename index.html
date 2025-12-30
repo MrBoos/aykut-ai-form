@@ -1,0 +1,2420 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aykut.ai - Kurumsal Başvuru</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a2540;
+            --accent: #635bff;
+            --text-main: #0a2540;
+            --text-sub: #425466;
+            --bg-page: #f7f9fc;
+            --bg-card: #ffffff;
+            --border: #e6ebf1;
+            --shadow: 0 50px 100px -20px rgba(50, 50, 93, 0.25), 0 30px 60px -30px rgba(0, 0, 0, 0.3);
+            --ease: cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        .bg-pattern {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-color: #f0f4f8;
+            background-image:
+                radial-gradient(at 0% 0%, rgba(99, 91, 255, 0.2) 0, transparent 50%),
+                radial-gradient(at 50% 100%, rgba(10, 37, 64, 0.15) 0, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(255, 50, 100, 0.1) 0, transparent 50%);
+            background-size: 150% 150%;
+            opacity: 1;
+            animation: bgAnim 15s ease infinite;
+        }
+
+        .bg-mesh {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(#635bff 1.5px, transparent 1.5px);
+            background-size: 30px 30px;
+            opacity: 0.35;
+            z-index: -1;
+            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+            -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+        }
+
+        @keyframes bgAnim {
+            0% {
+                background-position: 0% 50%
+            }
+
+            50% {
+                background-position: 100% 50%
+            }
+
+            100% {
+                background-position: 0% 50%
+            }
+        }
+
+        .ai-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 30px;
+            position: relative;
+            animation: float 6s ease-in-out infinite, robotEntrance 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ai-icon-inner {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 50%, #a855f7 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 40px rgba(99, 91, 255, 0.4);
+            position: relative;
+        }
+
+        .ai-icon-inner::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            background: conic-gradient(from 0deg, var(--accent), #a855f7, #ec4899, var(--accent));
+            border-radius: 24px;
+            z-index: -1;
+            animation: rotate-glow 3s linear infinite;
+        }
+
+        .ai-icon-inner::after {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            background: radial-gradient(circle, rgba(99, 91, 255, 0.4) 0%, transparent 70%);
+            border-radius: 30px;
+            z-index: -2;
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes rotate-glow {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                opacity: 0.4;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.8;
+                transform: scale(1.15);
+            }
+        }
+
+        .ai-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: white;
+        }
+
+        @keyframes robotEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(-60px) scale(0.5);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        }
+
+        .eye {
+            width: 4px;
+            height: 4px;
+            background: #fff;
+            border-radius: 50%;
+            animation: blink 4s infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        @keyframes blink {
+
+            0%,
+            96%,
+            100% {
+                transform: scaleY(1);
+            }
+
+            98% {
+                transform: scaleY(0.1);
+            }
+        }
+
+        .card {
+            width: 100%;
+            max-width: 500px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            transition: height 0.4s var(--ease);
+            z-index: 10;
+        }
+
+        .card-content {
+            padding: 40px;
+        }
+
+        .step {
+            display: none;
+            width: 100%;
+        }
+
+        .step.active {
+            display: block;
+            animation: slideIn 0.5s var(--ease) forwards;
+        }
+
+        .step.exiting {
+            display: block;
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            width: calc(100% - 80px);
+            animation: slideOut 0.4s var(--ease) forwards;
+            pointer-events: none;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            to {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 24px;
+            letter-spacing: -0.01em;
+            text-align: center;
+        }
+
+        .field {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-sub);
+            margin-bottom: 6px;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-main);
+            font-family: inherit;
+            transition: all 0.2s;
+            background: #fff;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(99, 91, 255, 0.1);
+        }
+
+        textarea {
+            resize: none;
+            min-height: 120px;
+        }
+
+        .grid-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .option {
+            border: none;
+            border-radius: 12px;
+            padding: 24px 16px;
+            cursor: pointer;
+            text-align: center;
+            font-weight: 600;
+            font-size: 16px;
+            color: white;
+            background: linear-gradient(135deg, #4f8ef7 0%, var(--accent) 100%);
+            transition: all 0.2s;
+            box-shadow: 0 4px 15px rgba(79, 142, 247, 0.3);
+        }
+
+        .option:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(79, 142, 247, 0.4);
+        }
+
+        .grid-source {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+        }
+
+        .option-small {
+            border: none;
+            border-radius: 10px;
+            padding: 14px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, #4f8ef7 0%, var(--accent) 100%);
+            transition: all 0.2s;
+            box-shadow: 0 3px 12px rgba(79, 142, 247, 0.25);
+        }
+
+        .option-small:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(79, 142, 247, 0.35);
+        }
+
+        .grid-size {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .option-size {
+            border: none;
+            border-radius: 10px;
+            padding: 16px;
+            cursor: pointer;
+            text-align: center;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, #4f8ef7 0%, var(--accent) 100%);
+            transition: all 0.2s;
+            box-shadow: 0 3px 12px rgba(79, 142, 247, 0.25);
+        }
+
+        .option-size:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(79, 142, 247, 0.35);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 16px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 10px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #5548d9;
+        }
+
+        .btn-primary:hover {
+            background-color: #5548d9;
+        }
+
+        /* Trusted Section */
+        .trusted-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e6ebf1;
+            text-align: center;
+        }
+
+        .trusted-text {
+            font-size: 12px;
+            color: var(--text-sub);
+            font-weight: 500;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .trusted-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            opacity: 0.5;
+            flex-wrap: wrap;
+        }
+
+        .logo-placeholder {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-serif {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+            opacity: 0.15;
+            animation: float-particle 15s infinite ease-in-out;
+        }
+
+        .particle:nth-child(1) {
+            left: 10%;
+            top: 20%;
+            animation-delay: 0s;
+            width: 8px;
+            height: 8px;
+        }
+
+        .particle:nth-child(2) {
+            left: 80%;
+            top: 10%;
+            animation-delay: -3s;
+            width: 12px;
+            height: 12px;
+        }
+
+        .particle:nth-child(3) {
+            left: 20%;
+            top: 70%;
+            animation-delay: -6s;
+            width: 6px;
+            height: 6px;
+        }
+
+        .particle:nth-child(4) {
+            left: 70%;
+            top: 80%;
+            animation-delay: -9s;
+            width: 14px;
+            height: 14px;
+        }
+
+        .particle:nth-child(5) {
+            left: 50%;
+            top: 50%;
+            animation-delay: -12s;
+            width: 10px;
+            height: 10px;
+        }
+
+        .particle:nth-child(6) {
+            left: 90%;
+            top: 40%;
+            animation-delay: -5s;
+            width: 8px;
+            height: 8px;
+        }
+
+        @keyframes float-particle {
+
+            0%,
+            100% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.15;
+            }
+
+            25% {
+                transform: translateY(-30px) translateX(20px) scale(1.2);
+                opacity: 0.25;
+            }
+
+            50% {
+                transform: translateY(-50px) translateX(-10px) scale(0.8);
+                opacity: 0.2;
+            }
+
+            75% {
+                transform: translateY(-20px) translateX(-30px) scale(1.1);
+                opacity: 0.18;
+            }
+        }
+
+        /* Card Styles */
+        .card {
+            width: 100%;
+            max-width: 500px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            transition: height 0.4s var(--ease);
+            z-index: 10;
+            animation: cardEntrance 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        @keyframes cardEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero Headline */
+        .hero-headline {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .hero-headline h1 {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .ai-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background: conic-gradient(from 180deg, #ec4899, #a855f7, #6366f1, #3b82f6, #06b6d4, #10b981, #eab308, #f97316, #ef4444, #ec4899);
+            border-radius: 50%;
+            vertical-align: middle;
+            margin: 0 6px;
+            animation: rotate-badge 4s linear infinite;
+            box-shadow: 0 4px 20px rgba(99, 91, 255, 0.4);
+        }
+
+        @keyframes rotate-badge {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Underline emphasis */
+        h2 u {
+            text-decoration: none;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 2px;
+        }
+
+        /* Info Note */
+        .info-note {
+            font-size: 13px;
+            color: var(--text-sub);
+            text-align: center;
+            margin-top: 16px;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        /* Online Indicator */
+        .online-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #22c55e;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse-online 2s ease-in-out infinite;
+            box-shadow: 0 0 8px #22c55e;
+        }
+
+        @keyframes pulse-online {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(0.9);
+            }
+        }
+
+        .trusted-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-main);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .trusted-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .logo-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-main);
+            opacity: 0.55;
+            letter-spacing: 0.3px;
+        }
+
+        .logo-icon {
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-pattern"></div>
+    <div class="bg-mesh"></div>
+
+    <!-- Floating Particles -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Hero Headline -->
+    <div class="hero-headline">
+        <h1>
+            Yapay Zeka İle
+            <span class="ai-badge">
+                <svg viewBox="0 0 24 24" fill="white" width="28" height="28">
+                    <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+            </span>
+            <br>İşinizi Büyütün
+        </h1>
+    </div>
+
+    <div class="card" id="mainCard">
+        <div class="card-content">
+
+
+            <!-- 1: TÜR -->
+            <div class="step active" id="stepType">
+                <h2>Talebiniz <u>bireysel</u> mi, <u>kurumsal</u> mı?</h2>
+                <div class="grid-options">
+                    <div class="option" onclick="chooseType('Bireysel')">Bireysel</div>
+                    <div class="option" onclick="chooseType('Kurumsal')">Kurumsal</div>
+                </div>
+                <p class="info-note">ℹ️ Size en uygun çözümü sunabilmemiz için seçiminiz önemli.</p>
+            </div>
+
+            <!-- 2: KAYNAK -->
+            <div class="step" id="stepSource">
+                <h2>Bizi <u>nereden</u> duydunuz?</h2>
+                <div class="grid-source">
+                    <div class="option-small" onclick="nextFlow('stepName')">Google</div>
+                    <div class="option-small" onclick="nextFlow('stepName')">YouTube</div>
+                    <div class="option-small" onclick="nextFlow('stepName')">Instagram</div>
+                    <div class="option-small" onclick="nextFlow('stepName')">LinkedIn</div>
+                    <div class="option-small" onclick="nextFlow('stepName')">Forum Sitesi</div>
+                    <div class="option-small" onclick="nextFlow('stepSourceOther')">Diğer</div>
+                </div>
+                <p class="info-note">ℹ️ Hangi kanaldan ulaştığınızı merak ediyoruz.</p>
+            </div>
+
+            <!-- 2.5: KAYNAK DİĞER -->
+            <div class="step" id="stepSourceOther">
+                <h2>Bizi <u>nereden</u> duydunuz?</h2>
+                <div class="field">
+                    <input type="text" id="sourceOtherInput" placeholder="Belirtiniz..."
+                        onkeypress="handleEnter(event, 'nextToName')">
+                </div>
+                <button class="btn btn-primary" onclick="nextFlow('stepName')">İLERLE</button>
+            </div>
+
+            <!-- 3: AD SOYAD -->
+            <div class="step" id="stepName">
+                <h2><u>Adınız / Soyadınız</u> Nedir?</h2>
+                <div class="field">
+                    <input type="text" id="firstNameInput" placeholder="Adınız">
+                </div>
+                <div class="field">
+                    <input type="text" id="lastNameInput" placeholder="Soyadınız"
+                        onkeypress="handleEnter(event, 'validateName')">
+                </div>
+                <p class="info-note">ℹ️ Görüşmelerimizde sizi isminizle karşılamak isteriz.</p>
+                <button class="btn btn-primary" onclick="validateName()">İLERLE</button>
+            </div>
+
+            <!-- 4: EMAIL -->
+            <div class="step" id="stepEmail">
+                <h2><u>E-Posta</u> Adresiniz Nedir?</h2>
+                <div class="field">
+                    <input type="email" id="emailInput" placeholder="ornek@sirketadi.com"
+                        onkeypress="handleEnter(event, 'validateEmail')">
+                </div>
+                <p class="info-note">ℹ️ Yapay zeka çözüm önerilerinizi bu adrese ileteceğiz.</p>
+                <button class="btn btn-primary" onclick="validateEmail()">İLERLE</button>
+            </div>
+
+            <!-- 5: PROJE -->
+            <div class="step" id="stepProject">
+                <h2>Lütfen Yapay Zeka <u>Asistan / Otomasyon</u> Talebinizi Anlatınız</h2>
+                <div class="field">
+                    <textarea id="msgInput" placeholder="Hedeflerinizi ve mevcut süreci kısaca anlatın"></textarea>
+                </div>
+                <p class="info-note">ℹ️ Bu bilgi, size özel çözüm önerileri sunmamızı sağlar.</p>
+                <button class="btn btn-primary" onclick="validateProject()">İLERLE</button>
+            </div>
+
+            <!-- 6: ŞİRKET İSMİ -->
+            <div class="step" id="stepCompany">
+                <h2>Şirketinizin Tam İsmi Nedir?</h2>
+                <div class="field">
+                    <input type="text" id="companyInput" placeholder="Şirket Adınız"
+                        onkeypress="handleEnter(event, 'nextToSize')">
+                </div>
+                <button class="btn btn-primary" onclick="nextFlow('stepSize')">Devam Et</button>
+            </div>
+
+            <!-- 7: ŞİRKET BÜYÜKLÜĞÜ -->
+            <div class="step" id="stepSize">
+                <h2>Çalışan Sayısı (Şirket Büyüklüğü)</h2>
+                <div class="grid-size">
+                    <div class="option-size" onclick="nextFlow('stepPosition')">1-10</div>
+                    <div class="option-size" onclick="nextFlow('stepPosition')">11-50</div>
+                    <div class="option-size" onclick="nextFlow('stepPosition')">51-200</div>
+                    <div class="option-size" onclick="nextFlow('stepPosition')">201-500</div>
+                    <div class="option-size" onclick="nextFlow('stepPosition')">501-1000</div>
+                    <div class="option-size" onclick="nextFlow('stepPosition')">1000+</div>
+                </div>
+            </div>
+
+            <!-- 8: POZİSYON -->
+            <div class="step" id="stepPosition">
+                <h2>Göreviniz / Pozisyonunuz nedir?</h2>
+                <div class="field">
+                    <input type="text" id="positionInput" placeholder="Göreviniz/Pozisyonunuz"
+                        onkeypress="handleEnter(event, 'nextToFinal')">
+                </div>
+                <button class="btn btn-primary" onclick="nextFlow('stepFinal')">Devam Et</button>
+            </div>
+
+            <!-- 8: FINAL -->
+            <div class="step" id="stepFinal">
+                <h2 id="finalTitle">İletişim Bilgileri</h2>
+
+                <div class="field">
+                    <label>Telefon Numaranız</label>
+                    <input type="tel" id="phoneInput" placeholder="Telefon Numaranız">
+                </div>
+
+                <div class="field">
+                    <label>Sizi ne zaman arayalım?</label>
+                    <select id="timeInput">
+                        <option value="" disabled selected>Sizi ne zaman arayalım?</option>
+                        <option value="Farketmez">Gün içinde herhangi bir saat</option>
+                        <option value="09-12">Sabah (09:00 - 12:00)</option>
+                        <option value="12-15">Öğle Arası (12:00 - 15:00)</option>
+                        <option value="15-18">Öğleden Sonra (15:00 - 18:00)</option>
+                        <option value="18-21">Akşam (18:00 - 21:00)</option>
+                    </select>
+                </div>
+
+                <button class="btn btn-primary" onclick="submitForm(this)">Başvuruyu Tamamla</button>
+            </div>
+
+            <!-- SUCCESS -->
+            <div class="step" id="stepSuccess">
+                <div style="text-align: center; padding: 30px 0;">
+                    <!-- Success Badge -->
+                    <div
+                        style="width: 90px; height: 90px; background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); border-radius: 50%; color: white; font-size: 44px; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; box-shadow: 0 10px 30px rgba(34, 197, 94, 0.35);">
+                        ✓
+                    </div>
+                    <h2 style="margin-bottom: 12px;">Başvurunuz Alındı!</h2>
+                    <p style="color: #697586; font-size: 15px; line-height: 1.6; max-width: 320px; margin: 0 auto;">
+                        Ekibimiz en kısa sürede sizinle iletişime geçecek. Görüşmek üzere! �
+                    </p>
+                </div>
+            </div>
+
+            <!-- TRUSTED FOOTER -->
+            <div class="trusted-section" id="trustedSection">
+                <p class="trusted-text">
+                    <span class="online-dot"></span>
+                    +290'dan fazla işletme bize güveniyor
+                </p>
+                <div class="trusted-logos">
+                    <div class="logo-item"><span class="logo-icon">⚕</span> Atlas Medikal</div>
+                    <div class="logo-item"><span class="logo-icon">🏠</span> Emlakzeka</div>
+                    <div class="logo-item"><span class="logo-icon">📊</span> Finova</div>
+                    <div class="logo-item"><span class="logo-icon">⚡</span> TechPro</div>
+                    <div class="logo-item"><span class="logo-icon">🔧</span> MakinaPark</div>
+                    <div class="logo-item"><span class="logo-icon">🎯</span> DigitalX</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        let isCorporate = false;
+        const genderMap = {};
+
+        // DEVASA İSİM LİSTESİ (Kapsamlı Veritabanı)
+        const males = ['abbas',
+            'abdi',
+            'abdullah',
+            'abdurrahman',
+            'abdülkadir',
+            'abdülkerim',
+            'abidin',
+            'acun',
+            'adem',
+            'adil',
+            'adnan',
+            'affan',
+            'abdullah',
+            'abdurrahman',
+            'abdülkadir',
+            'abdülkerim',
+            'abidin',
+            'acun',
+            'adem',
+            'adil',
+            'adnan',
+            'affan',
+            'agah',
+            'ahmet',
+            'akın',
+            'akif',
+            'aksel',
+            'alaaddin',
+            'aladdin',
+            'alcan',
+            'aldemir',
+            'alden',
+            'alev',
+            'ali',
+            'alican',
+            'alihan',
+            'alişan',
+            'alpay',
+            'alper',
+            'alperen',
+            'altan',
+            'altay',
+            'altuğ',
+            'anıl',
+            'aras',
+            'arda',
+            'arif',
+            'arkın',
+            'armağan',
+            'arman',
+            'arslan',
+            'artun',
+            'ata',
+            'ataberk',
+            'atahan',
+            'atakan',
+            'atalay',
+            'ateş',
+            'atilla',
+            'atlıhan',
+            'avni',
+            'ayaz',
+            'aybars',
+            'ayberk',
+            'aydin',
+            'aydın',
+            'ayhan',
+            'aykut',
+            'aytaç',
+            'aytekin',
+            'azad',
+            'azer',
+            'aziz',
+            'azzam',
+            'babür',
+            'baha',
+            'bahadır',
+            'bahattin',
+            'bahri',
+            'bahtiyar',
+            'baki',
+            'bala',
+            'balamır',
+            'baransel',
+            'barbaros',
+            'barış',
+            'barkın',
+            'barlas',
+            'bartu',
+            'başar',
+            'başaran',
+            'batı',
+            'batıkan',
+            'batu',
+            'batuhan',
+            'batur',
+            'baturay',
+            'bayar',
+            'baybars',
+            'baybora',
+            'baykal',
+            'bayram',
+            'bedir',
+            'bedirhan',
+            'bedri',
+            'behlül',
+            'behzat',
+            'bekir',
+            'bektas',
+            'mami',
+            'memo',
+            'berat',
+            'berdan',
+            'berk',
+            'berkay',
+            'berke',
+            'berkin',
+            'besim',
+            'beyazıt',
+            'beytullah',
+            'bilal',
+            'bilgehan',
+            'bilgin',
+            'birkan',
+            'birol',
+            'boğaç',
+            'boğaçhan',
+            'bora',
+            'boran',
+            'buğra',
+            'buğrahan',
+            'buket',
+            'bulut',
+            'burak',
+            'burç',
+            'burhan',
+            'burhanettin',
+            'bülent',
+            'bünyamin',
+            'cafer',
+            'cahit',
+            'can',
+            'canberk',
+            'candan',
+            'caner',
+            'cankat',
+            'cansın',
+            'cavip',
+            'cavit',
+            'celal',
+            'celalettin',
+            'celil',
+            'cem',
+            'cemal',
+            'cemil',
+            'cenap',
+            'cengiz',
+            'cengizhan',
+            'cenk',
+            'ceren',
+            'cevahir',
+            'cevdet',
+            'cevat',
+            'ceyhun',
+            'cihan',
+            'cihangir',
+            'civan',
+            'coşkun',
+            'coşku',
+            'cumali',
+            'cumhur',
+            'cüneyt',
+            'çağan',
+            'çağatay',
+            'çağdaş',
+            'çağlar',
+            'çağrı',
+            'çelik',
+            'çetin',
+            'çevik',
+            'çınar',
+            'çığır',
+            'çolpan',
+            'dağhan',
+            'dalokay',
+            'damra',
+            'daniş',
+            'davut',
+            'demir',
+            'demirhan',
+            'deniz',
+            'denizhan',
+            'derviş',
+            'devran',
+            'devrim',
+            'dicle',
+            'didem',
+            'dilaver',
+            'dinçer',
+            'diren',
+            'diyar',
+            'doğan',
+            'doğukan',
+            'doğu',
+            'dominik',
+            'doruk',
+            'dursun',
+            'durul',
+            'durmuş',
+            'duygu',
+            'dündar',
+            'ece',
+            'ecevit',
+            'edip',
+            'efe',
+            'efecan',
+            'efekan',
+            'ege',
+            'egemen',
+            'ekber',
+            'ekin',
+            'ekrem',
+            'elvan',
+            'emim',
+            'emin',
+            'emir',
+            'emirhan',
+            'emrah',
+            'emre',
+            'emrullah',
+            'ender',
+            'enes',
+            'engin',
+            'ercan',
+            'ercüment',
+            'erdal',
+            'erdem',
+            'erden',
+            'erdi',
+            'eren',
+            'ergin',
+            'ergun',
+            'erhan',
+            'erkan',
+            'erkin',
+            'erman',
+            'erol',
+            'ersan',
+            'ersin',
+            'ertan',
+            'ertuğrul',
+            'eruz',
+            'ervin',
+            'esat',
+            'eser',
+            'eşref',
+            'evren',
+            'evrim',
+            'eymen',
+            'eyüp',
+            'fadıl',
+            'fahrettin',
+            'fahri',
+            'faik',
+            'fatih',
+            'fazıl',
+            'fehmi',
+            'ferda',
+            'ferdi',
+            'ferhat',
+            'feridun',
+            'ferit',
+            'ferman',
+            'ferruh',
+            'fethi',
+            'fevzi',
+            'feyyaz',
+            'feyzullah',
+            'fikret',
+            'fikri',
+            'filiz',
+            'fırat',
+            'fuat',
+            'furkan',
+            'galip',
+            'gani',
+            'garip',
+            'gazi',
+            'gediz',
+            'gencay',
+            'gencer',
+            'gençer',
+            'giray',
+            'gök',
+            'gökalp',
+            'gökay',
+            'gökberk',
+            'gökçen',
+            'gökdeniz',
+            'gökhan',
+            'göksel',
+            'göktuğ',
+            'göktürk',
+            'görkem',
+            'gülhan',
+            'gültekin',
+            'günal',
+            'günay',
+            'güner',
+            'güneş',
+            'güney',
+            'günther',
+            'gürbüz',
+            'gürcan',
+            'gürdal',
+            'gürhan',
+            'gürkan',
+            'gürsel',
+            'güven',
+            'güvenç',
+            'habib',
+            'habil',
+            'hac',
+            'hacı',
+            'hadi',
+            'hafız',
+            'hakan',
+            'hakkı',
+            'haldun',
+            'halil',
+            'halim',
+            'halis',
+            'halit',
+            'haluk',
+            'hamdi',
+            'hamdullah',
+            'hamit',
+            'hamza',
+            'han',
+            'hanefi',
+            'harun',
+            'hasan',
+            'hasbi',
+            'hasip',
+            'haşim',
+            'hatay',
+            'haydar',
+            'hayati',
+            'hayrettin',
+            'hayri',
+            'hayrullah',
+            'hazar',
+            'heper',
+            'hıfzı',
+            'hıncal',
+            'hızır',
+            'hicabi',
+            'hikmet',
+            'hilmi',
+            'himmet',
+            'hüdayi',
+            'hülagü',
+            'hürkan',
+            'hüsamettin',
+            'hüseyin',
+            'hüsnü',
+            'ibrahim',
+            'idris',
+            'ihsan',
+            'ilbey',
+            'ilgaz',
+            'ilhami',
+            'ilhan',
+            'ilkay',
+            'ilke',
+            'ilker',
+            'ilyas',
+            'imdat',
+            'imran',
+            'inanç',
+            'irfan',
+            'isa',
+            'ishak',
+            'iskender',
+            'islam',
+            'ismail',
+            'ismet',
+            'israfil',
+            'izzet',
+            'kaan',
+            'kadem',
+            'kadir',
+            'kadri',
+            'kağan',
+            'kahraman',
+            'kalender',
+            'kamuran',
+            'kandemir',
+            'kani',
+            'kaptan',
+            'karaca',
+            'karan',
+            'kartal',
+            'kasım',
+            'kaya',
+            'kayhan',
+            'kayıhan',
+            'kazım',
+            'kemal',
+            'kemalettin',
+            'kenan',
+            'kerem',
+            'kerim',
+            'keykubat',
+            'kılıç',
+            'kıvanç',
+            'koray',
+            'korcan',
+            'korkmaz',
+            'korkut',
+            'köksal',
+            'kubilay',
+            'kudret',
+            'kuntay',
+            'kurt',
+            'kurtuluş',
+            'kürşat',
+            'latif',
+            'levent',
+            'lokman',
+            'lütfi',
+            'lütfü',
+            'macit',
+            'mahir',
+            'mahmut',
+            'mahsun',
+            'maksut',
+            'malik',
+            'manço',
+            'mansur',
+            'mazhar',
+            'mecit',
+            'mecnun',
+            'medet',
+            'mehdi',
+            'mehmet',
+            'melih',
+            'melik',
+            'memduh',
+            'menderes',
+            'mengü',
+            'mert',
+            'mertcan',
+            'mesut',
+            'mete',
+            'metehan',
+            'metin',
+            'mevlüt',
+            'mithat',
+            'mir',
+            'miraç',
+            'mirza',
+            'muammer',
+            'muaz',
+            'muhammed',
+            'muhammet',
+            'muharrem',
+            'muhittin',
+            'muhlis',
+            'muhsin',
+            'muhtar',
+            'murat',
+            'musa',
+            'mustafa',
+            'mutlu',
+            'muzaffer',
+            'mücahit',
+            'müfit',
+            'müjdat',
+            'mükerrem',
+            'mümün',
+            'münir',
+            'mürsel',
+            'müslüm',
+            'mustafa',
+            'müstakim',
+            'naci',
+            'nadi',
+            'nadir',
+            'nafiz',
+            'nahit',
+            'nail',
+            'naim',
+            'namık',
+            'nasuh',
+            'nasır',
+            'nazım',
+            'nazif',
+            'nazmi',
+            'nebi',
+            'necati',
+            'necdet',
+            'necip',
+            'necmettin',
+            'nedim',
+            'nefi',
+            'nejat',
+            'nesim',
+            'nesimi',
+            'nevzat',
+            'nezih',
+            'nihat',
+            'niyazi',
+            'nizam',
+            'nizamettin',
+            'numan',
+            'nurettin',
+            'nuri',
+            'nurkan',
+            'nurullah',
+            'nusret',
+            'oğulcan',
+            'oğuz',
+            'oğuzhan',
+            'okan',
+            'okay',
+            'oktay',
+            'olcay',
+            'olgun',
+            'onal',
+            'onur',
+            'onuralp',
+            'orçun',
+            'orhan',
+            'orkun',
+            'oruc',
+            'orun',
+            'osman',
+            'ozan',
+            'ömer',
+            'önal',
+            'önder',
+            'öner',
+            'özay',
+            'özbey',
+            'özbir',
+            'özcan',
+            'özdemir',
+            'özer',
+            'özgür',
+            'özhan',
+            'özkan',
+            'öztürk',
+            'pamir',
+            'paşa',
+            'peker',
+            'peyami',
+            'polat',
+            'poyraz',
+            'ragıp',
+            'rahim',
+            'rahmi',
+            'raif',
+            'ramazan',
+            'ramiz',
+            'rasim',
+            'raşit',
+            'rauf',
+            'recai',
+            'recep',
+            'refik',
+            'reha',
+            'remzi',
+            'resul',
+            'reşat',
+            'reşit',
+            'rıdvan',
+            'rıza',
+            'rifat',
+            'riza',
+            'ruhi',
+            'rusen',
+            'ruşen',
+            'rüçhan',
+            'rüstü',
+            'rüştü',
+            'saadettin',
+            'sabahattin',
+            'sabri',
+            'sacit',
+            'sadettin',
+            'sadık',
+            'sadi',
+            'sadri',
+            'sadullah',
+            'saffet',
+            'safî',
+            'saim',
+            'sait',
+            'salih',
+            'salim',
+            'samet',
+            'sami',
+            'samih',
+            'sarp',
+            'sarper',
+            'satılmış',
+            'savaş',
+            'seçkin',
+            'sedat',
+            'sefa',
+            'sefer',
+            'sefercan',
+            'sehmuz',
+            'selahattin',
+            'selami',
+            'selçuk',
+            'selim',
+            'selman',
+            'semih',
+            'semir',
+            'sencer',
+            'serbülent',
+            'sercan',
+            'serdar',
+            'seren',
+            'sergen',
+            'serhan',
+            'serhat',
+            'serkan',
+            'sermet',
+            'serol',
+            'sertaç',
+            'servet',
+            'seyfi',
+            'seyfettin',
+            'seyhan',
+            'seyit',
+            'seyfullah',
+            'sezai',
+            'sezgin',
+            'sinan',
+            'somer',
+            'soner',
+            'soydan',
+            'sönmez',
+            'suat',
+            'suphi',
+            'süheyl',
+            'süleyman',
+            'sümer',
+            'şaban',
+            'şadan',
+            'şadi',
+            'şafi',
+            'şahin',
+            'şahap',
+            'şakir',
+            'şamil',
+            'şansal',
+            'şant',
+            'şarık',
+            'şefik',
+            'şehmuz',
+            'şemsettin',
+            'şemsi',
+            'şener',
+            'şenol',
+            'şensoy',
+            'şerafettin',
+            'şeref',
+            'şerif',
+            'şevket',
+            'şevki',
+            'şıh',
+            'şinasi',
+            'şükrü',
+            'tacettin',
+            'tahir',
+            'talat',
+            'talha',
+            'talip',
+            'tamer',
+            'tan',
+            'taner',
+            'tanju',
+            'tankut',
+            'tansel',
+            'tardu',
+            'tarık',
+            'tarkan',
+            'taşkın',
+            'tayfun',
+            'taylan',
+            'tayyar',
+            'tayyip',
+            'tekim',
+            'tekin',
+            'temel',
+            'teoman',
+            'tevfik',
+            'tevrat',
+            'tezcan',
+            'timuçin',
+            'timur',
+            'tolga',
+            'tolgahan',
+            'tolunay',
+            'toprak',
+            'toygar',
+            'tufan',
+            'tugay',
+            'tuğberk',
+            'tuğrul',
+            'tuna',
+            'tunahan',
+            'tuncay',
+            'tunç',
+            'tuncer',
+            'turan',
+            'turgay',
+            'turgut',
+            'turhan',
+            'tutku',
+            'tümay',
+            'türkay',
+            'türker',
+            'ufuk',
+            'uğur',
+            'uğurcan',
+            'ulaş',
+            'uluç',
+            'ulvi',
+            'umut',
+            'utku',
+            'uygar',
+            'ümit',
+            'ünal',
+            'ünsal',
+            'üstat',
+            'üveys',
+            'vahap',
+            'vahdet',
+            'vahit',
+            'varol',
+            'vedat',
+            'vefa',
+            'veli',
+            'veysel',
+            'veysi',
+            'volkan',
+            'vural',
+            'yahya',
+            'yakup',
+            'yalçın',
+            'yaman',
+            'yasin',
+            'yaşar',
+            'yavuz',
+            'yekta',
+            'yener',
+            'yetkin',
+            'yıldıray',
+            'yıldırım',
+            'yılmaz',
+            'yiğit',
+            'yiğithan',
+            'yunus',
+            'yusuf',
+            'yücel',
+            'yüksel',
+            'zafer',
+            'zahit',
+            'zekeriya',
+            'zeki',
+            'zeynel',
+            'zihni',
+            'ziya',
+            'ziyaettin',
+            'zübeyir',
+            'zülfikar',
+            'zülfü'
+        ];
+
+        const females = ['açelya',
+            'ada',
+            'adalet',
+            'afet',
+            'akus',
+            'aleyna',
+            'algin',
+            'aslı',
+            'aslıhan',
+            'asu',
+            'asuman',
+            'asya',
+            'ayben',
+            'aybüke',
+            'ayça',
+            'ayda',
+            'aydan',
+            'ayfer',
+            'aygün',
+            'ayla',
+            'aylin',
+            'aynil',
+            'aynur',
+            'aysel',
+            'aysen',
+            'aysu',
+            'aysun',
+            'ayşe',
+            'ayşegül',
+            'ayşen',
+            'ayşenur',
+            'ayten',
+            'ayzıt',
+            'aziyme',
+            'azra',
+            'bahar',
+            'bahriye',
+            'balca',
+            'banu',
+            'başak',
+            'bediriye',
+            'begüm',
+            'behiye',
+            'belgin',
+            'beliz',
+            'belkıs',
+            'benan',
+            'bengisu',
+            'bengü',
+            'beren',
+            'berfin',
+            'beril',
+            'berna',
+            'berrak',
+            'berrin',
+            'beste',
+            'betül',
+            'beyhan',
+            'beyza',
+            'bihter',
+            'bilge',
+            'seda',
+            'sedef',
+            'bige',
+            'bigem',
+            'bilun',
+            'birgül',
+            'biricik',
+            'birsen',
+            'birsu',
+            'buket',
+            'burcu',
+            'burçin',
+            'buse',
+            'büşra',
+            'cahide',
+            'canan',
+            'candan',
+            'cansel',
+            'cansu',
+            'cemile',
+            'cemre',
+            'cennet',
+            'ceren',
+            'cevriye',
+            'ceyda',
+            'ceylan',
+            'ceyline',
+            'çağla',
+            'çiçek',
+            'çiğdem',
+            'çiler',
+            'damla',
+            'defne',
+            'demet',
+            'deniz',
+            'derya',
+            'destan',
+            'dicle',
+            'didem',
+            'dilan',
+            'dilara',
+            'dilay',
+            'dilek',
+            'dilruba',
+            'dilsad',
+            'döne',
+            'döndü',
+            'dudu',
+            'duygu',
+            'ebru',
+            'ece',
+            'ecem',
+            'eda',
+            'edanur',
+            'efsun',
+            'ege',
+            'elçin',
+            'eleyna',
+            'elfida',
+            'elif',
+            'elmas',
+            'elvan',
+            'emel',
+            'emine',
+            'emiriye',
+            'enise',
+            'erem',
+            'esen',
+            'esengül',
+            'eser',
+            'esin',
+            'esma',
+            'esmanur',
+            'esmeray',
+            'esra',
+            'eylül',
+            'ezgi',
+            'fadime',
+            'fahriye',
+            'fatma',
+            'fatmagül',
+            'fatmanur',
+            'fatoş',
+            'fazilet',
+            'fehime',
+            'feray',
+            'ferda',
+            'feride',
+            'feriha',
+            'feyza',
+            'fidan',
+            'figen',
+            'fikriye',
+            'filiz',
+            'firdevs',
+            'fulya',
+            'funda',
+            'fureya',
+            'gamze',
+            'gaye',
+            'gizəm',
+            'gizem',
+            'gonca',
+            'gökçe',
+            'gökçen',
+            'göksu',
+            'gönül',
+            'gözde',
+            'gül',
+            'gülay',
+            'gülbahar',
+            'gülben',
+            'gülbin',
+            'gülcan',
+            'gülce',
+            'gülçin',
+            'güldane',
+            'gülden',
+            'gülderen',
+            'gülen',
+            'gülenay',
+            'güler',
+            'gülfidan',
+            'gülhan',
+            'gülizar',
+            'güllü',
+            'gülnaz',
+            'gülnur',
+            'gülperi',
+            'gülru',
+            'gülsüm',
+            'gülse',
+            'gülsel',
+            'gülseren',
+            'gülşah',
+            'gülşen',
+            'gülten',
+            'günay',
+            'günce',
+            'güneş',
+            'güngör',
+            'güniz',
+            'günsel',
+            'günseli',
+            'güzel',
+            'güzide',
+            'güzin',
+            'hacer',
+            'hafize',
+            'hale',
+            'halide',
+            'halime',
+            'hamide',
+            'hamiyet',
+            'handan',
+            'hande',
+            'hanife',
+            'hasibe',
+            'hatice',
+            'havva',
+            'hayal',
+            'hayat',
+            'hayriye',
+            'hazan',
+            'hazel',
+            'hazal',
+            'helin',
+            'hicran',
+            'hilal',
+            'hiranur',
+            'huriye',
+            'hümeyra',
+            'hüsniye',
+            'ırmak',
+            'ışık',
+            'ışıl',
+            'ışın',
+            'iclal',
+            'idil',
+            'ifet',
+            'ikbal',
+            'iklim',
+            'ilayda',
+            'ilgin',
+            'ilkem',
+            'ilkim',
+            'ilknur',
+            'ilksen',
+            'imge',
+            'imran',
+            'inci',
+            'ipek',
+            'irem',
+            'jale',
+            'jülide',
+            'kader',
+            'kadriye',
+            'kamile',
+            'kamuran',
+            'kardelen',
+            'kayra',
+            'kebire',
+            'kezban',
+            'keziban',
+            'kumru',
+            'kübra',
+            'lamia',
+            'lale',
+            'leman',
+            'lerzan',
+            'leyla',
+            'lütfiye',
+            'macide',
+            'müzeyyen',
+            'makbule',
+            'manolya',
+            'maral',
+            'mavi',
+            'maviş',
+            'medine',
+            'mehtap',
+            'mehveş',
+            'melahat',
+            'melda',
+            'melek',
+            'meliha',
+            'melike',
+            'melis',
+            'melisa',
+            'meltem',
+            'memnune',
+            'menekşe',
+            'meral',
+            'mercâ',
+            'meriç',
+            'merve',
+            'meryem',
+            'mevcude',
+            'mevhibe',
+            'mısra',
+            'mias',
+            'mihriban',
+            'mina',
+            'mine',
+            'miray',
+            'mübeccel',
+            'müberra',
+            'mücella',
+            'müjgan',
+            'mükerrem',
+            'münevver',
+            'münire',
+            'mürevvet',
+            'mürvet',
+            'müşerref',
+            'naciye',
+            'nadide',
+            'nadiye',
+            'nafia',
+            'nafize',
+            'nagehan',
+            'nagihan',
+            'nahide',
+            'naile',
+            'nalan',
+            'naz',
+            'nazan',
+            'nazife',
+            'nazlı',
+            'nazmiye',
+            'nebahat',
+            'nebiye',
+            'necla',
+            'necmiye',
+            'nefes',
+            'nefiye',
+            'nehibe',
+            'nela',
+            'nergis',
+            'neriman',
+            'nermin',
+            'nesli',
+            'neslihan',
+            'nesrin',
+            'neşe',
+            'neşve',
+            'nevin',
+            'nevra',
+            'nevriye',
+            'nezahat',
+            'nezaket',
+            'nezihe',
+            'nida',
+            'nigar',
+            'nihal',
+            'nihan',
+            'nil',
+            'nilay',
+            'nilgün',
+            'nilüfer',
+            'nimet',
+            'nisa',
+            'nisan',
+            'nur',
+            'nural',
+            'nuran',
+            'nuray',
+            'nurbanu',
+            'nurcan',
+            'nurçin',
+            'nurdan',
+            'nurdane',
+            'nurgül',
+            'nurhan',
+            'nuriye',
+            'nursel',
+            'nurseli',
+            'nursen',
+            'nursevim',
+            'nurten',
+            'oğultürk',
+            'oya',
+            'oykü',
+            'öykü',
+            'özden',
+            'özge',
+            'özlem',
+            'özlen',
+            'öznur',
+            'pakize',
+            'papatya',
+            'parla',
+            'pelin',
+            'pelinsu',
+            'pembe',
+            'perihan',
+            'pervin',
+            'petek',
+            'pınar',
+            'piraye',
+            'pırıl',
+            'rabia',
+            'rahime',
+            'rahşan',
+            'rana',
+            'ravza',
+            'reyhan',
+            'rezzan',
+            'ruhan',
+            'rukiye',
+            'rumeysa',
+            'rüya',
+            'saadet',
+            'sabahat',
+            'sabiha',
+            'sabriye',
+            'sade',
+            'sadiye',
+            'safiye',
+            'sahra',
+            'saime',
+            'sakin',
+            'sakine',
+            'saliha',
+            'salkım',
+            'samime',
+            'sanem',
+            'saniye',
+            'sarah',
+            'sare',
+            'seba',
+            'sebat',
+            'seçil',
+            'seda',
+            'sedef',
+            'seden',
+            'seher',
+            'selda',
+            'selen',
+            'selime',
+            'selin',
+            'selinay',
+            'seliz',
+            'selma',
+            'selvi',
+            'sema',
+            'semah',
+            'semiha',
+            'semra',
+            'sena',
+            'senay',
+            'senem',
+            'seniha',
+            'serap',
+            'seray',
+            'seren',
+            'serma',
+            'serpil',
+            'serra',
+            'sevcan',
+            'sevda',
+            'sevde',
+            'sevgül',
+            'sevgi',
+            'sevil',
+            'sevilay',
+            'sevim',
+            'sevinç',
+            'sevtap',
+            'sevval',
+            'seyhan',
+            'sezen',
+            'sezer',
+            'sıdıka',
+            'sıla',
+            'sırma',
+            'sibel',
+            'simay',
+            'simge',
+            'sinem',
+            'solmaz',
+            'songül',
+            'su',
+            'suat',
+            'sultan',
+            'suna',
+            'sunay',
+            'sureyya',
+            'susam',
+            'suzan',
+            'süheyla',
+            'sükran',
+            'süme',
+            'sümeyra',
+            'sümeyye',
+            'sündüz',
+            'süreyya',
+            'şadiye',
+            'şafak',
+            'şahika',
+            'şaziye',
+            'şebnem',
+            'şefika',
+            'şehnaz',
+            'şehriban',
+            'şelale',
+            'şengül',
+            'şennur',
+            'şermin',
+            'şevval',
+            'şeyda',
+            'şeyma',
+            'şimal',
+            'şirin',
+            'şule',
+            'şükran',
+            'şükriye',
+            'taliha',
+            'tansu',
+            'tanyeli',
+            'tanyeri',
+            'taçnur',
+            'tuğba',
+            'tuğçe',
+            'tuna',
+            'tutku',
+            'tülay',
+            'tülin',
+            'türkan',
+            'ufuk',
+            'umay',
+            'ummuhan',
+            'utku',
+            'ülker',
+            'ülkü',
+            'ümmiye',
+            'ümmü',
+            'ümmügülsüm',
+            'ümran',
+            'vahide',
+            'vecide',
+            'vedia',
+            'verda',
+            'vesile',
+            'vicdan',
+            'vijdan',
+            'vildan',
+            'vuslat',
+            'yağmur',
+            'yaprak',
+            'yaren',
+            'yasemin',
+            'yelda',
+            'yeliz',
+            'yesim',
+            'yeşim',
+            'yeter',
+            'yıldız',
+            'yonca',
+            'yosun',
+            'yurdagül',
+            'yüksel',
+            'zahide',
+            'zehra',
+            'zekiye',
+            'zeliha',
+            'zerrin',
+            'zeyneb',
+            'zeynep',
+            'zinnur',
+            'ziynet',
+            'zuhal',
+            'zübeyde',
+            'zühal',
+            'zülal',
+            'zülfiye',
+            'zümrüt',
+            'zühre'
+        ];
+
+        // HashMap oluşturma (Hızlı Erişim İçin)
+        males.forEach(n => genderMap[n] = 'Bey');
+        females.forEach(n => genderMap[n] = 'Hanım');
+
+        function updateHeight(stepId) {
+            setTimeout(() => {
+                const el = document.getElementById(stepId);
+                const footer = document.getElementById('trustedSection');
+                const card = document.getElementById('mainCard');
+
+                if (el && card && footer) {
+                    // Step height + Footer height + Padding (80)
+                    const totalHeight = el.offsetHeight + footer.offsetHeight + 80 + 20; // +20 for extra buffer
+                    card.style.height = totalHeight + 'px';
+                }
+            }
+
+                , 50);
+        }
+
+        window.onload = () => updateHeight('stepType');
+
+        function transition(fromId, toId) {
+            const fromEl = document.getElementById(fromId);
+            const toEl = document.getElementById(toId);
+            fromEl.className = 'step exiting';
+            toEl.className = 'step active';
+            updateHeight(toId);
+
+            setTimeout(() => {
+                fromEl.className = 'step';
+            }
+
+                , 400);
+            const input = toEl.querySelector('input, textarea');
+            if (input) setTimeout(() => input.focus(), 100);
+        }
+
+        function chooseType(type) {
+            isCorporate = (type === 'Kurumsal');
+            nextFlow('stepSource'); // Both flows go through source question
+        }
+
+        function nextFlow(targetId) {
+            const currentId = document.querySelector('.step.active').id;
+            transition(currentId, targetId);
+        }
+
+        function nextToSize() {
+            nextFlow('stepSize');
+        }
+
+        function handleEnter(e, actionName) {
+            if (e.key === 'Enter') {
+                if (actionName === 'validateName') validateName();
+                if (actionName === 'validateEmail') validateEmail();
+                if (actionName === 'nextToSize') nextFlow('stepSize');
+                if (actionName === 'nextToFinal') nextFlow('stepFinal');
+                if (actionName === 'nextToName') nextFlow('stepName');
+            }
+        }
+
+        function validateName() {
+            const firstName = document.getElementById('firstNameInput').value.trim();
+            const lastName = document.getElementById('lastNameInput').value.trim();
+            if (firstName.length < 2) return alert('Lütfen adınızı giriniz.');
+            if (lastName.length < 2) return alert('Lütfen soyadınızı giriniz.');
+            nextFlow('stepEmail');
+        }
+
+        function validateEmail() {
+            const email = document.getElementById('emailInput').value.trim();
+            if (!email.includes('@')) return alert('Lütfen geçerli bir e-posta giriniz.');
+            nextFlow('stepProject');
+        }
+
+        function validateProject() {
+            const msg = document.getElementById('msgInput').value.trim();
+            if (msg.length < 3) return alert('Lütfen projenizden kısaca bahsedin.');
+            isCorporate ? nextFlow('stepCompany') : nextFlow('stepFinal');
+        }
+
+        function submitForm(btn) {
+            const phone = document.getElementById('phoneInput').value.trim();
+            if (phone.length < 10) return alert('Lütfen numaranızı giriniz.');
+            const name = document.getElementById('firstNameInput').value.trim();
+            const firstName = name.split(' ')[0].toLowerCase().replace(/i/g, 'i').replace(/ı/g, 'i').replace(/İ/g, 'i');
+            // Normalize for map lookup (basit lowercase yetmeyebilir, mapping key'leri ile uyumlu hale getiriyoruz)
+            // Ancak listem tamamen lowercase.
+
+            let lookupName = name.split(' ')[0].toLowerCase();
+            // Türkçe karakter düzeltmesi: i/ı karmaşası için
+            // Listemizdeki isimler "ahmet", "ışıl" gibi.
+            // input'tan gelen Işıl -> ışıl olur. 
+            // input'tan gelen İsmail -> ismail olur.
+
+            let suffix = "";
+            if (genderMap[lookupName]) suffix = " " + genderMap[lookupName];
+
+            else {
+                // simple fallback checks
+                let alt1 = lookupName.replace('i', 'ı');
+                if (genderMap[alt1]) suffix = " " + genderMap[alt1];
+                let alt2 = lookupName.replace('ı', 'i');
+                if (genderMap[alt2]) suffix = " " + genderMap[alt2];
+            }
+
+            document.getElementById('finalTitle').textContent = `Son bir adım kaldı, ${name.split(' ')[0]}${suffix}!`;
+            btn.textContent = 'Gönderiliyor...';
+            btn.style.opacity = '0.7';
+
+            setTimeout(() => {
+                const currentId = document.querySelector('.step.active').id;
+                transition(currentId, 'stepSuccess');
+            }
+
+                , 1200);
+        }
+
+        const observer = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
+                if (mutation.target.id === 'stepFinal' && mutation.target.classList.contains('active')) {
+                    const name = document.getElementById('nameInput').value.trim();
+
+                    if (name) {
+                        let lookupName = name.split(' ')[0].toLowerCase();
+                        let suffix = "";
+                        if (genderMap[lookupName]) suffix = " " + genderMap[lookupName];
+
+                        else {
+                            let alt1 = lookupName.replace('i', 'ı');
+                            if (genderMap[alt1]) suffix = " " + genderMap[alt1];
+                            let alt2 = lookupName.replace('ı', 'i');
+                            if (genderMap[alt2]) suffix = " " + genderMap[alt2];
+                        }
+
+                        document.getElementById('finalTitle').textContent = `Son bir adım kaldı, ${name.split(' ')[0]}${suffix}!`;
+                    }
+                }
+            });
+        });
+
+        observer.observe(document.getElementById('stepFinal'), {
+            attributes: true, attributeFilter: ['class']
+        });
+
+    </script>
+</body>
+
+</html>
